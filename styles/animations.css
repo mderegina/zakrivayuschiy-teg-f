@@ -12,3 +12,80 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/* Двигающаяся стрелка */
+
+.theme-menu__button:disabled::after {
+  position: absolute;
+  content: '▶';
+  top: 0;
+  left: -15px;
+  animation: moving 0.5s ease-in-out infinite alternate; 
+}
+
+@keyframes moving {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(4px);
+  }
+} 
+
+/* Выдвигающийся псевдоэлемент на кнопке Like */
+
+.card__like-button::before,
+.footer__button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--mix-color);
+  color: var(--bg-color);
+  mix-blend-mode: difference;
+  translate: -100%;
+}
+
+.card__like-button:hover::before,
+.footer__button:hover::before {
+  animation: move 0.5s ease-in-out forwards;
+} 
+
+@keyframes move {
+  from {
+    translate: -100;
+  }
+
+  to {
+    translate: 0;
+  }
+}
+
+/* Увеличивающееся сердце */
+
+.is-liked .heart {
+    animation: heart-big 0.3s ease-in normal; 
+  }
+  
+@keyframes heart-big {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.5;
+  }
+}  
+
+/* Добавление искр */
+
+.is-liked .sparks {
+  animation: sparks 0.3s 0.3s ease-in normal; 
+}
+  
+@keyframes sparks {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: var(--accent-font-heart);
+  }
+} 
