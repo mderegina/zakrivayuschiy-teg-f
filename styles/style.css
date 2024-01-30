@@ -153,8 +153,7 @@
 }
 
 .card__picture-img3 {
-  filter: brightness(200%);
-  filter: contrast(50%);
+  filter: brightness(200%) contrast(50%);
 }
 
 .card__picture-img4 {
@@ -199,7 +198,7 @@
       text-stroke: 1px var(--bg-color);
       text-shadow: none;
       opacity: 0.5;
-      mix-blend-mode: hard-light; 
+      mix-blend-mode: hard-light;
   }
 }
 
@@ -233,9 +232,6 @@
 
 .like-icon {
   fill: var(--accent-color);
-}
-
-.like-icon {
   align-items: center;
 }
 
