@@ -2,7 +2,7 @@
 :root {
   /* Переменные светлой темы */
   --main-font: 'Inter', sans-serif;
-  --accent-font: 'PressStart2P';
+  --accent-font: 'PressStart2P', fantasy;
   --text-weight: 400;
   --title-weight: 700;
   --bg-color: #fff;

@@ -32,38 +32,35 @@
   }
 } 
 
-/* Выдвигающийся псевдоэлемент на кнопке Like */
+/* Выдвигающийся псевдоэлемент на кнопках */
 
 .card__like-button::before,
-.footer__button::before {
+.footer__button::before,
+.footer__dialog-button::before {
   content: '';
   position: absolute;
   inset: 0;
+  height: 100%;
+  transform-origin: left;
+  width: 100%;
   background-color: var(--mix-color);
   color: var(--bg-color);
   mix-blend-mode: difference;
+  transition: 0.5s ease-in-out;
   translate: -100%;
 }
 
 .card__like-button:hover::before,
-.footer__button:hover::before {
-  animation: move 0.5s ease-in-out forwards;
+.footer__button:hover::before,
+.footer__dialog-button:hover::before {
+  translate: 0%;
 } 
-
-@keyframes move {
-  from {
-    translate: -100;
-  }
-
-  to {
-    translate: 0;
-  }
-}
 
 /* Увеличивающееся сердце */
 
 .is-liked .heart {
     animation: heart-big 0.3s ease-in normal; 
+    transform-origin: center;
 }
   
 @keyframes heart-big {
