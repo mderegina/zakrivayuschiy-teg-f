@@ -1,1 +1,1 @@
-https://mderegina.github.io/zakrivayuschiy-teg-f/
+https://github.com/mderegina/zakrivayuschiy-teg-f.git
