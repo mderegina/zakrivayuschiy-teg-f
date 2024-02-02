@@ -58,8 +58,12 @@
 
 /* Увеличивающееся сердце */
 
+.is-liked {
+  animation: scale 0.3s 0.1s ease-in alternate;
+}
+
 .is-liked .heart {
-    animation: heart-big 0.3s ease-in normal; 
+    animation: heart-big 0.3s ease-in alternate; 
     transform-origin: center;
 }
   
@@ -75,7 +79,7 @@
 /* Добавление искр */
 
 .is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in normal;
+  animation: sparks 0.3s 0.3s ease-in alternate;
 }
   
 @keyframes sparks {

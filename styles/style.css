@@ -23,8 +23,8 @@
   font-size: var(--main-font-size);
   color: var(--accent-color);
   background-image: 
-    repeating-linear-gradient(var(--bg-image), transparent 2px),
-    repeating-linear-gradient(90deg, var(--bg-image), transparent 2px),
+    repeating-linear-gradient(var(--bg-image) 0 2px, transparent 0 4px),
+    repeating-linear-gradient(90deg, var(--bg-image) 0 2px, transparent 0 4px),
     linear-gradient(var(--bg-gradient-first), var(--bg-gradient-second));
   object-fit: cover;
   background-attachment: fixed; 
@@ -97,6 +97,19 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
+
+.theme-menu__button::after { 
+  content: ''; 
+  display: block; 
+  width: 0%; 
+  height: 2px; 
+  background-color: var(--accent-color); 
+  transition: width 0.3s; 
+} 
+
+.theme-menu__button:focus-visible::after { 
+  width: 100%; 
+} 
 
 .content {
   display: flex;
@@ -235,35 +248,51 @@
   cursor: pointer;
 }
 
-.like-icon:hover .core {
-  fill: var(--main-font-heart);
-  transition: fill 0.3s linear;
+.core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s ease alternate;
 }
 
-.like-icon:hover .main-body {
+.like-icon:hover .core {
   fill: var(--main-font-heart);
-  transition: fill 0.3s 0.5s linear;
+  transition: fill 0.3s linear alternate;
 }
+
 
 .like-icon:active .core,
 .like-icon:active .main-body {
   fill: var(--accent-font-heart);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s 0.05s linear alternate;
 }
 
 .like-icon.is-liked .core {
   fill: var(--accent-font-heart);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s ease alternate;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s ease alternate;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--main-font-heart);
+  transition: fill 0.3s 0.5s linear alternate;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--accent-font-heart);
-  transition: fill 0.3s 0.03s linear;
+  transition: fill 0.3s 0.05s ease alternate;
+}
+
+.contour {
+  fill: var(--main-font-heart);
+  transition: fill 0.1s linear;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--accent-font-heart);
-  transition: fill 0.3s 0.06s linear;
+  transition: fill 0.3s 0.06s ease alternate;
 }
 
 .card__like-button {
@@ -399,6 +428,10 @@ opacity: 0;
     padding-top: 120px;
   }
 
+  .card__picture-add {
+    right: 12px;
+  }
+
   .disc {
     inline-size: 28px;
     block-size: 28px;
@@ -410,8 +443,15 @@ opacity: 0;
     block-size: 84px;
   }
 
-  .footer__dialog {
+  .footer__dialog[open] {
     inline-size: 345px;
     block-size: 199px;
+    padding: 30px 40px;
   }
+
+  .footer__dialog-button {
+    width: 257px;
+    height: 38px;
+  }
+
 }
